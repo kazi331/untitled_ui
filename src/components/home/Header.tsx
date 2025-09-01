@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, CloseIcon, Hamburger } from "../shared/Icons";
 
 interface MenuType {
@@ -29,8 +29,31 @@ const menuItems: MenuType[] = [
 
 export default function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const toggleMobileNav = () => setShowMobileMenu((pre) => !pre);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showMobileMenu) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setShowMobileMenu(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside, true);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [showMobileMenu]);
   return (
     <header className="px-6 py-4 bg-brand">
+      <div
+        className={`fixed top-0 left-0 right-0 bottom-0 bg-black/40 ${
+          showMobileMenu ? "w-full" : "w-0"
+        }`}
+      />
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 text-white font-bold mr-10">
@@ -54,7 +77,7 @@ export default function Header() {
 
         <button
           className="ms-auto md:hidden p-1 cursor-pointer active:scale-95 transition"
-          onClick={() => setShowMobileMenu((pre) => !pre)}
+          onClick={toggleMobileNav}
         >
           <Hamburger className="size-8" />
         </button>
@@ -62,13 +85,14 @@ export default function Header() {
         {/* Mobile Menu */}
 
         <div
-          className={`flex flex-col w-full h-full bg-primary sm:max-w-xs fixed top-0 right-0 pt-4 z-10 px-5 md:hidden ${
+          ref={navRef}
+          className={`mobile-nav flex flex-col w-full h-full bg-primary sm:max-w-xs fixed top-0 right-0 pt-4 z-10 px-5 md:hidden ${
             showMobileMenu ? "translate-x-0" : "translate-x-full"
           } transition `}
         >
           <button
             className="ms-auto md:hidden p-1 cursor-pointer active:scale-95 transition mb-4"
-            onClick={() => setShowMobileMenu((pre) => !pre)}
+            onClick={toggleMobileNav}
           >
             <CloseIcon className="size-8 text-white" />
           </button>
