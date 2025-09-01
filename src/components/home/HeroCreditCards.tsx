@@ -3,7 +3,6 @@ import { cards, type Card } from "@/lib/dummy";
 export default function HeroCreditCards() {
   return (
     <div className="relative w-full h-64 flex items-end justify-center">
-      <CreditCard card={cards[0]} contentClasses="" />
       <div className="relative w-full h-full flex items-end justify-center">
         {cards.map((card, index) => {
           // Calculate rotation and positioning for fanned effect
@@ -64,7 +63,7 @@ export const CreditCard = ({
 }) => {
   return (
     <div
-      className={`w-md h-48 rounded-2xl bg-gradient-to-t from-white/40 to-white/30 backdrop-blur-sm border-2 border-white/70 shadow `}
+      className={`w-96 h-48 rounded-2xl bg-gradient-to-br from-[#A68FC0]/60 via-[#8883B7]/60 to-[#A297C1]/60 backdrop-blur-xs border-2 border-white/70 shadow `}
     >
       <div className="p-6 w-2/3 flex flex-col justify-between h-full">
         <p className="text-white font-semibold text-2xl tracking-wider">
