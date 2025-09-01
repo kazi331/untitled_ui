@@ -59,6 +59,8 @@ export default function Header() {
           <Hamburger className="size-8" />
         </button>
 
+        {/* Mobile Menu */}
+
         <div
           className={`flex flex-col w-full h-full bg-primary sm:max-w-xs fixed top-0 right-0 pt-4 z-10 px-5 md:hidden ${
             showMobileMenu ? "translate-x-0" : "translate-x-full"
@@ -82,6 +84,21 @@ export default function Header() {
               </a>
             );
           })}
+          <div className="mb-4 mt-10">
+            <hr className="text-white/30 mb-2" />
+            <a
+              href="/"
+              className="text-white font-medium flex gap-2 hover:bg-brand/30 rounded-lg py-2 px-6"
+            >
+              Login
+            </a>
+            <a
+              href="/"
+              className="text-white font-medium flex gap-2 hover:bg-brand/30 rounded-lg py-2 px-6"
+            >
+              Sign up
+            </a>
+          </div>
         </div>
 
         <div className="hidden md:flex items-center gap-3 ms-auto">
