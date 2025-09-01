@@ -1,14 +1,16 @@
+import { cards } from "@/lib/dummy";
 import { PlayCircle } from "../shared/Icons";
+import { CreditCard } from "./HeroCreditCards";
 
 export default function Hero() {
   return (
-    <div className="bg-brand py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-[#E9D7FE]">Super. Simple. Banking.</p>
+    <div className="bg-brand pt-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  overflow-hidden">
+        <p className="text-[#E9D7FE] text-center">Super. Simple. Banking.</p>
         <p className="text-7xl text-white font-extrabold max-w-3xl mx-auto my-8">
           Banking technology that has your back.
         </p>
-        <p className="text-[#E9D7FE]">
+        <p className="text-[#E9D7FE] text-center">
           Simple, transparent banking. No hidden fees and free overdrafts.
         </p>
         <div className="flex gap-4 justify-center my-8">
@@ -19,6 +21,9 @@ export default function Hero() {
             Sign up
           </button>
         </div>
+        {/* <HeroCreditCards /> */}
+        {/* Credit Card */}
+        <CreditCard card={cards[3]} contentClasses="" />
       </div>
     </div>
   );

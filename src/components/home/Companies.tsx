@@ -5,7 +5,7 @@ import {
   LightBox,
   Nietzsche,
   Spherule,
-} from "../shared/Icons";
+} from "@/components/shared/Icons";
 
 interface Company {
   name: string;
