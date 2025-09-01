@@ -2,7 +2,7 @@ import { cards, type Card } from "@/lib/dummy";
 
 export default function CreditCards() {
   return (
-    <div className="flex justify-center h-[38rem] -mb-64 ">
+    <div className="flex justify-center h-[38rem] -mb-72 ">
       {cards.map((card: Card, i: number) => (<CreditCard card={card} i={i} key={card.id} />))}
     </div>
   );
