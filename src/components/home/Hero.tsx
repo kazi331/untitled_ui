@@ -1,6 +1,6 @@
-import { PlayCircle } from "./shared/Icons";
+import { PlayCircle } from "../shared/Icons";
 
-export default function HeroSection() {
+export default function Hero() {
   return (
     <div className="bg-brand py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

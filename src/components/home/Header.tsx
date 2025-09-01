@@ -1,4 +1,4 @@
-import { ChevronDown } from "./shared/Icons";
+import { ChevronDown } from "../shared/Icons";
 
 interface MenuType {
   name: string;

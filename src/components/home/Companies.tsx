@@ -5,30 +5,19 @@ import {
   LightBox,
   Nietzsche,
   Spherule,
-} from "./shared/Icons";
+} from "../shared/Icons";
 
-const companies: { name: string; icon: React.FC<{ className?: string }> }[] = [
+interface Company {
+  name: string;
+  icon: React.FC<{ className?: string }>;
+}
+const companies: Company[] = [
   { name: "Boltshift", icon: Boltshift },
-  {
-    name: "Lightbox",
-    icon: LightBox,
-  },
-  {
-    name: "FeatherDev",
-    icon: FeatherDev,
-  },
-  {
-    name: "Global Bank",
-    icon: GlobalBank,
-  },
-  {
-    name: "Nietzsche",
-    icon: Nietzsche,
-  },
-  {
-    name: "Spherule",
-    icon: Spherule,
-  },
+  { name: "Lightbox", icon: LightBox },
+  { name: "FeatherDev", icon: FeatherDev },
+  { name: "Global Bank", icon: GlobalBank },
+  { name: "Nietzsche", icon: Nietzsche },
+  { name: "Spherule", icon: Spherule },
 ];
 
 export default function Companies() {

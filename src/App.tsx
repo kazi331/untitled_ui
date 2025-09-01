@@ -1,13 +1,13 @@
-import Companies from "./components/Companies";
-import CTA from "./components/CTA";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
+import Companies from "./components/home/Companies";
+import CTA from "./components/home/CTA";
+import Header from "./components/home/Header";
+import Hero from "./components/home/Hero";
 
 export default function App() {
   return (
     <div>
       <Header />
-      <HeroSection />
+      <Hero />
       <Companies />
       <CTA />
     </div>
