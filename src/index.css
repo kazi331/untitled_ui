@@ -1,4 +1,11 @@
 @import "tailwindcss";
 html {
-  color-scheme: dark;
+  /* color-scheme: dark; */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+@theme {
+  --color-brand: #53389e;
+  --color-primary: #7f56d9;
 }
