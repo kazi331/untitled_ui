@@ -3,7 +3,7 @@ import { cards, type Card } from "@/lib/dummy";
 export default function HeroCreditCards() {
   return (
     <div>
-      <div className="flex justify-center relative -my-36 h-[38rem]">
+      <div className="flex justify-center relative -mb-48 h-[30rem]">
         <div>
           {cards.map((card: Card, i: number) => {
             return (

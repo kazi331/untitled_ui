@@ -1,4 +1,5 @@
-import { ChevronDown } from "../shared/Icons";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, CloseIcon, Hamburger } from "../shared/Icons";
 
 interface MenuType {
   name: string;
@@ -27,8 +28,32 @@ const menuItems: MenuType[] = [
 ];
 
 export default function Header() {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const toggleMobileNav = () => setShowMobileMenu((pre) => !pre);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showMobileMenu) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setShowMobileMenu(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside, true);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [showMobileMenu]);
   return (
     <header className="px-6 py-4 bg-brand">
+      <div
+        className={`fixed top-0 left-0 right-0 bottom-0 bg-black/40 ${
+          showMobileMenu ? "w-full" : "w-0"
+        }`}
+      />
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 text-white font-bold mr-10">
@@ -37,7 +62,7 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 mr-auto">
+        <nav className="hidden md:flex items-center space-x-8 ">
           {menuItems.map((item: MenuType, i) => (
             <a
               key={i}
@@ -50,7 +75,57 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <button
+          className="ms-auto md:hidden p-1 cursor-pointer active:scale-95 transition"
+          onClick={toggleMobileNav}
+        >
+          <Hamburger className="size-8" />
+        </button>
+
+        {/* Mobile Menu */}
+
+        <div
+          ref={navRef}
+          className={`mobile-nav flex flex-col w-full h-full bg-primary sm:max-w-xs fixed top-0 right-0 pt-4 z-10 px-5 md:hidden ${
+            showMobileMenu ? "translate-x-0" : "translate-x-full"
+          } transition `}
+        >
+          <button
+            className="ms-auto md:hidden p-1 cursor-pointer active:scale-95 transition mb-4"
+            onClick={toggleMobileNav}
+          >
+            <CloseIcon className="size-8 text-white" />
+          </button>
+          {menuItems.map((item, i) => {
+            return (
+              <a
+                key={i}
+                href={item.href}
+                className="text-white font-medium flex gap-2 hover:bg-brand/30 rounded-lg py-2 px-6"
+              >
+                {item.name}
+                {item.children && <ChevronDown className="mt-0.5" />}
+              </a>
+            );
+          })}
+          <div className="mb-4 mt-10">
+            <hr className="text-white/30 mb-2" />
+            <a
+              href="/"
+              className="text-white font-medium flex gap-2 hover:bg-brand/30 rounded-lg py-2 px-6"
+            >
+              Login
+            </a>
+            <a
+              href="/"
+              className="text-white font-medium flex gap-2 hover:bg-brand/30 rounded-lg py-2 px-6"
+            >
+              Sign up
+            </a>
+          </div>
+        </div>
+
+        <div className="hidden md:flex items-center gap-3 ms-auto">
           <button className="text-white hover:bg-primary/20 transition-colors py-2 px-4 rounded-lg cursor-pointer">
             Login
           </button>
@@ -58,9 +133,6 @@ export default function Header() {
             Sign up
           </button>
         </div>
-
-        {/* Mobile Menu Button - Hidden on larger screens */}
-        <button className="md:hidden flex items-center justify-center w-8 h-8 text-gray-700"></button>
       </div>
     </header>
   );
