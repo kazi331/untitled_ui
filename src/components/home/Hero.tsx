@@ -1,6 +1,5 @@
-import { cards } from "@/lib/dummy";
 import { PlayCircle } from "../shared/Icons";
-import HeroCreditCards, { CreditCard } from "./HeroCreditCards";
+import HeroCreditCards from "./HeroCreditCards";
 
 export default function Hero() {
   return (
@@ -22,8 +21,6 @@ export default function Hero() {
           </button>
         </div>
         <HeroCreditCards />
-        {/* Credit Card */}
-        <CreditCard card={cards[2]} contentClasses="" />
       </div>
     </div>
   );
