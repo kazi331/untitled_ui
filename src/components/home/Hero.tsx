@@ -9,7 +9,7 @@ export default function Hero() {
         <p className="text-7xl text-white font-extrabold max-w-3xl mx-auto my-8">
           Banking technology that has your back.
         </p>
-        <p className="text-[#E9D7FE] text-center">
+        <p className="text-[#E9D7FE] text-center ">
           Simple, transparent banking. No hidden fees and free overdrafts.
         </p>
         <div className="flex gap-4 justify-center my-8">

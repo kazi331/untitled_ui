@@ -1,11 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap");
 @import "tailwindcss";
-html {
-  /* color-scheme: dark; */
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
 
 @theme {
   --color-brand: #53389e;
   --color-primary: #7f56d9;
+  --font-inter: "Inter", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
 }

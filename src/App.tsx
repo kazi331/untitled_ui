@@ -5,7 +5,7 @@ import Hero from "./components/home/Hero";
 
 export default function App() {
   return (
-    <div>
+    <div className="font-inter">
       <Header />
       <Hero />
       <Companies />
