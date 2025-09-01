@@ -26,7 +26,8 @@ export default function Companies() {
       <p className="text-sm text-[#475467] text-center mb-10">
         Join 4,000+ companies already growing
       </p>
-      <div className="flex gap-5 items-center justify-center">
+      {/* <div className="grid gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8"> */}
+      <div className="flex gap-4 flex-wrap items-center justify-center">
         {companies.map((company) => (
           <div key={company.name} className="flex gap-2 items-center">
             <company.icon />
