@@ -16,7 +16,7 @@ export default function CTA() {
             </button>
           </div>
         </div>
-        <img src="/cta.jpg" alt="" className=" object-cover w-full md:w-2/5" />
+        <img src="/cta.jpg" alt="" className="object-cover w-full md:w-2/5 max-h-72" />
       </div>
     </div>
   );
